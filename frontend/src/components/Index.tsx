@@ -3,7 +3,7 @@ import { Button, Input } from "@chakra-ui/react";
 import NavBar from "./NavBar";
 import { Card, CardBody, useToast } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
-import MasterLogo from "../assets/Master_Logo.png";
+// import MasterLogo from "../assets/Master_Logo.png";
 
 const Index = () => {
   const toast = useToast();

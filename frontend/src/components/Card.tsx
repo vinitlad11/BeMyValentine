@@ -16,7 +16,9 @@ const Card = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/${name}`);
+      const response = await fetch(
+        `https://be-my-valentine-api.vercel.app/${name}`
+      );
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
