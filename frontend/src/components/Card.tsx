@@ -69,6 +69,7 @@ const Card = () => {
             <span className="name"> {userData} </span>
           </div>
         </div>
+        <div></div>
       </div>
     </>
   );

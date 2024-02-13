@@ -3,7 +3,7 @@ import { Button, Input } from "@chakra-ui/react";
 import NavBar from "./NavBar";
 import { Card, CardBody, useToast } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
-// import MasterLogo from "../assets/Master_Logo.png";
+import MasterLogo from "../assets/Master_Logo.png";
 
 const Index = () => {
   const toast = useToast();
@@ -52,40 +52,43 @@ const Index = () => {
       <NavBar />
       <Card>
         <CardBody>
-          {/* <Text>View a summary of all your customers over the last month.</Text> */}
-          {/* <img src={MasterLogo} /> */}
-          <form onSubmit={handleSubmit}>
-            {/* <Text fontSize="3xl">Name</Text> */}
-            Name:
-            <Input
-              onChange={(event) => setName(event.target.value)}
-              value={name}
-              id="first_name"
-              variant="outline"
-              placeholder="Enter Name"
-              size="lg"
-              focusBorderColor="red"
-              required
-              // style={{ color: "white" }}
-            />
-            <br />
-            <br />
-            {/* Select Message:
+          <div className="Home">
+            <div className="img">
+              <img src={MasterLogo} style={{ height: "30px" }} />
+            </div>
+            <div className="opt">
+              <form onSubmit={handleSubmit}>
+                Name:
+                <Input
+                  onChange={(event) => setName(event.target.value)}
+                  value={name}
+                  id="first_name"
+                  variant="outline"
+                  placeholder="Enter Name"
+                  size="lg"
+                  focusBorderColor="red"
+                  required
+                />
+                <br />
+                <br />
+                {/* Select Message:
             <Select placeholder="Select option" focusBorderColor="red">
               <option value="option1">Option 1</option>
               <option value="option2">Option 2</option>
               <option value="option3">Option 3</option>
             </Select>
             <br /> */}
-            <div className="form-btns">
-              <Button type="submit" colorScheme="green">
-                Copy Link
-              </Button>
-              <Button colorScheme="blue" onClick={handlePreview}>
-                Preview
-              </Button>
+                <div className="form-btns">
+                  <Button type="submit" colorScheme="green">
+                    Copy Link
+                  </Button>
+                  <Button colorScheme="blue" onClick={handlePreview}>
+                    Preview
+                  </Button>
+                </div>
+              </form>
             </div>
-          </form>
+          </div>
         </CardBody>
       </Card>
     </>

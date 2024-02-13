@@ -5,7 +5,7 @@ import begin from "../assets/begin.gif";
 import "./Home.css";
 import { Button } from "@chakra-ui/react";
 import { useEffect } from "react";
-// import axios from "axios";
+import MasterLogo from "../assets/Master_Logo.png";
 
 const Home = () => {
   let { name } = useParams();
@@ -41,6 +41,10 @@ const Home = () => {
     console.log(name);
   };
 
+  const handleImage = () => {
+    navigate("/");
+  };
+
   const handleNoOnClick = () => {
     const noChange = [
       "No",
@@ -66,7 +70,7 @@ const Home = () => {
     const fontSize = parseFloat(getComputedStyle(targetButton).fontSize);
     const newWidth = currentWidth + 30;
     const newHeight = currentHeight + 20;
-    const newFont = fontSize + 10;
+    const newFont = fontSize + 15;
     targetButton.style.width = newWidth + "px";
     targetButton.style.height = newHeight + "px";
     targetButton.style.fontSize = newFont + "px";
@@ -77,31 +81,44 @@ const Home = () => {
 
   return (
     <>
-      <div className="Home">
-        <div className="imageCenter">
-          <img src={begin} height={"150px"} width={"200px"} id="image" />
-        </div>
-        <div className="que">
-          <span>Will you be my Valentine</span>
-          <br />
-          <span className="nameI"> {userData}💐?? </span>
-          <br />
-          👉👈
-        </div>
-        <br />
-        <div className="btns">
+      {userData && (
+        <div className="Home">
           <div>
-            <Button id="yes" onClick={handleYesOnClick} colorScheme="whatsapp">
-              Yes
-            </Button>
+            <img
+              src={MasterLogo}
+              style={{ height: "30px" }}
+              onClick={handleImage}
+            />
           </div>
-          <div>
-            <Button id="no" onClick={handleNoOnClick} colorScheme="twitter">
-              No
-            </Button>
+          <div className="imageCenter">
+            <img src={begin} height={"150px"} width={"200px"} id="image" />
+          </div>
+          <div className="que">
+            <span>Will you be my Valentine</span>
+            <br />
+            <span className="nameI"> {userData} ?? 💐</span>
+            <br />
+            👉👈
+          </div>
+          <br />
+          <div className="btns">
+            <div>
+              <Button
+                id="yes"
+                onClick={handleYesOnClick}
+                colorScheme="whatsapp"
+              >
+                Yes
+              </Button>
+            </div>
+            <div>
+              <Button id="no" onClick={handleNoOnClick} colorScheme="twitter">
+                No
+              </Button>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   );
 };
